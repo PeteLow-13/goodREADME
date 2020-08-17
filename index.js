@@ -35,7 +35,7 @@ var questions =  [{
   {
     type: 'input',
     name: 'contributing',
-    message: 'Who is contributing to your project?',
+    message: 'Guidelines to contribute to your project?',
     default: 'Contributing',
   },
   {
@@ -47,8 +47,20 @@ var questions =  [{
   {
     type: 'input',
     name: 'questions',
-    message: 'What are the questions for your project?',
-    default: 'Questions',
+    message: 'What would you like to say to direct people to contact you with questions?(you will be prompted for contact info next)',
+    default: 'Contact me via email or github with questions',
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: 'What is your email for questions?',
+    default: 'Email',
+  },
+  {
+    type: 'input',
+    name: 'github',
+    message: 'What is your github profile for question?',
+    default: 'github',
   },
   
 ];
@@ -79,6 +91,8 @@ function generateMD(answers) {
     markDown += generateParagraph(answers.tests);
     markDown += getHeading2("Questions");
     markDown += generateParagraph(answers.questions);
+    markDown += generateListItem(answers.email)
+    markDown += generateListItem(answers.github)
 
     return markDown;
 };
