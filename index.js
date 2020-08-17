@@ -14,12 +14,43 @@ var questions =  [{
   message: 'What is your project description?',
   default: 'Description',
 },
-// {
-//     type: 'input',
-//     name: 'Title',
-//     message: 'What is your project name?',
-//     default: '',
-//   },
+{
+    type: 'input',
+    name: 'installation',
+    message: 'What are the insallation instuctions for your project?',
+    default: 'Installation',
+  },
+  {
+    type: 'input',
+    name: 'usage',
+    message: 'What is the usage your project?',
+    default: 'Usage',
+  },
+  {
+    type: 'input',
+    name: 'license',
+    message: 'What is the license for your project?',
+    default: 'License',
+  },
+  {
+    type: 'input',
+    name: 'contributing',
+    message: 'Who is contributing to your project?',
+    default: 'Contributing',
+  },
+  {
+    type: 'input',
+    name: 'tests',
+    message: 'What are the tests for your project?',
+    default: 'Tests',
+  },
+  {
+    type: 'input',
+    name: 'questions',
+    message: 'What are the questions for your project?',
+    default: 'Questions',
+  },
+  
 ];
 
 function generateMD(answers) {
@@ -37,11 +68,17 @@ function generateMD(answers) {
     markDown += generateListItem(generateLink("Questions", "#questions"));
 
     markDown += getHeading2("Installation");
+    markDown += generateParagraph(answers.installation);
     markDown += getHeading2("Usage");
+    markDown += generateParagraph(answers.usage);
     markDown += getHeading2("License");
+    markDown += generateParagraph(answers.license);
     markDown += getHeading2("Contributing");
+    markDown += generateParagraph(answers.contributing);
     markDown += getHeading2("Tests");
+    markDown += generateParagraph(answers.tests);
     markDown += getHeading2("Questions");
+    markDown += generateParagraph(answers.questions);
 
     return markDown;
 };
