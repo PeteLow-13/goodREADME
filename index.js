@@ -29,9 +29,15 @@ var questions =  [{
   {
     type: 'input',
     name: 'license',
-    message: 'What is the license for your project?',
+    message: 'Explain which license your project is covered under',
     default: 'License',
   },
+  // {
+  //   type: 'input',
+  //   name: 'license',
+  //   message: 'Select a license that your project is covered under',
+  //   default: 'License',
+  // },  
   {
     type: 'input',
     name: 'contributing',
