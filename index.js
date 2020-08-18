@@ -27,21 +27,22 @@ var questions =  [{
     default: 'Usage',
   },
   {
+    type: 'list',
+    name: 'licenseBadge',
+    message: 'Select a license your project is covered under',
+    choices:['one', 'two', 'three'],
+    default: 'No License',
+  },
+  {
     type: 'input',
     name: 'license',
-    message: 'Explain which license your project is covered under',
+    message: 'Explain which license that your project is covered under',
     default: 'License',
-  },
-  // {
-  //   type: 'input',
-  //   name: 'license',
-  //   message: 'Select a license that your project is covered under',
-  //   default: 'License',
-  // },  
+  }, 
   {
     type: 'input',
     name: 'contributing',
-    message: 'Guidelines to contribute to your project?',
+    message: 'What are the guidelines to contribute to your project?',
     default: 'Contributing',
   },
   {
@@ -74,6 +75,7 @@ var questions =  [{
 function generateMD(answers) {
     var markDown = "";
     markDown += getHeading1(answers.title);
+    markDown += getLicenseBadge(answers.licenseBadge)
     markDown += generateParagraph(answers.description);
 
     markDown += getHeading2("Table of Contents");
@@ -87,6 +89,7 @@ function generateMD(answers) {
 
     markDown += getHeading2("Installation");
     markDown += generateParagraph(answers.installation);
+    //change this to create list items
     markDown += getHeading2("Usage");
     markDown += generateParagraph(answers.usage);
     markDown += getHeading2("License");
@@ -111,19 +114,20 @@ function getHeading2(text) {
   return "## " + text + newLine;
 };
 
-
-
 function generateParagraph(text) {
     return newLine + text + newLine;
 }
 
 function generateLink(text, url){
   return "[" + text + "](" + url + ")";
-
 }
 
 function generateListItem(item){
   return "- " + item + newLine;
+}
+
+function getLicenseBadge(item){
+  return  "Badge" + item + newLine;
 }
 
 inquirer.prompt(questions).then((answers) => {
@@ -132,13 +136,4 @@ inquirer.prompt(questions).then((answers) => {
     });
   });
   
-console.log("hello world")
-// * Title
-// * Description
-// * Table of Contents
-// * Installation
-// * Usage
-// * License
-// * Contributing
-// * Tests
-// * Questions
+// console.log("hello world")
