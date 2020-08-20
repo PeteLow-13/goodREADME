@@ -30,7 +30,7 @@ var questions =  [{
     type: 'list',
     name: 'licenseBadge',
     message: 'Select a license your project is covered under',
-    choices:['one', 'two', 'three'],
+    choices:['MIT', 'BSD', 'Apache', 'LGPL', "MPL"],
     default: 'No License',
   },
   {
@@ -101,6 +101,7 @@ function generateMD(answers) {
     markDown += getHeading2("Questions");
     markDown += generateParagraph(answers.questions);
     markDown += generateListItem(answers.email)
+    
     markDown += generateListItem(answers.github)
 
     return markDown;
@@ -129,6 +130,15 @@ function generateListItem(item){
 function getLicenseBadge(item){
   return  "Badge" + item + newLine;
 }
+function generateGitHubLink(text){
+  return [`\${answer.github}\`](https://github.com/${answer.github});
+
+  
+}
+
+Project Home Page: ${data.homePage}
+* Project Github: ${data.github}
+* Author: [\`${data.author}\`](https://github.com/${data.author})
 
 inquirer.prompt(questions).then((answers) => {
     fs.writeFile("README.md", generateMD(answers), function(){
