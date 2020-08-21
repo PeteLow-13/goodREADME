@@ -24,7 +24,7 @@ var questions =  [{
   {
     type: 'input',
     name: 'usage',
-    message: 'What is the usage your project?',
+    message: 'What is the usage of your project?',
     default: 'Usage',
   },
   {
@@ -66,6 +66,12 @@ var questions =  [{
   },
   {
     type: 'input',
+    name: 'repositoryURL',
+    message: 'What is the url for the project repository?',
+    default: 'repository',
+  },
+  {
+    type: 'input',
     name: 'github',
     message: 'What is your github profile?',
     default: 'github',
@@ -99,10 +105,12 @@ function generateMD(answers) {
     markDown += generateParagraph(answers.contributing);
     markDown += getHeading2("Tests");
     markDown += generateParagraph(answers.tests);
+    markDown += getHeading2("Repository");
+    markDown += generateListItem(answers.repositoryURL)
     markDown += getHeading2("Questions");
     markDown += generateParagraph(answers.questions);
     markDown += generateListItem(answers.email);
-    markDown += generateListItem(answers.github);
+    markDown += generateListItem(generateGithublink(answers.github));
 
     return markDown;
 };
@@ -130,6 +138,11 @@ function generateListItem(item){
 function getLicenseBadge(item){
   return "License: " + item + newLine;
 }
+
+function generateGithublink(text){
+  return "[" + text + "](http://github.com/" + text + ")";
+}
+
 //   [![License: ${ answer.license }](https://img.shields.io/badge/License-${ data.license }-blue.svg)](https://opensource.org/licenses/${ data.license })
 // } 
 
