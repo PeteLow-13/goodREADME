@@ -2,19 +2,20 @@ const fs = require("fs");
 const inquirer = require('inquirer');
 const newLine = "\n";
 
+
 var questions =  [{
     type: 'input',
     name: 'title',
     message: 'What is your project name?',
     default: 'Title',
   },
-{
-  type: 'input',
-  name: 'description',
-  message: 'What is your project description?',
-  default: 'Description',
-},
-{
+  {
+    type: 'input',
+    name: 'description',
+    message: 'What is your project description?',
+    default: 'Description',
+  },
+  {
     type: 'input',
     name: 'installation',
     message: 'What are the insallation instuctions for your project?',
@@ -60,13 +61,13 @@ var questions =  [{
   {
     type: 'input',
     name: 'email',
-    message: 'What is your email for questions?',
+    message: 'What is your email?',
     default: 'Email',
   },
   {
     type: 'input',
     name: 'github',
-    message: 'What is your github profile for question?',
+    message: 'What is your github profile?',
     default: 'github',
   },
   
@@ -74,8 +75,9 @@ var questions =  [{
 
 function generateMD(answers) {
     var markDown = "";
+    
     markDown += getHeading1(answers.title);
-    markDown += getLicenseBadge(answers.licenseBadge)
+    markDown += getLicenseBadge(answers.licenseBadge);
     markDown += generateParagraph(answers.description);
 
     markDown += getHeading2("Table of Contents");
@@ -89,7 +91,6 @@ function generateMD(answers) {
 
     markDown += getHeading2("Installation");
     markDown += generateParagraph(answers.installation);
-    //change this to create list items
     markDown += getHeading2("Usage");
     markDown += generateParagraph(answers.usage);
     markDown += getHeading2("License");
@@ -100,9 +101,8 @@ function generateMD(answers) {
     markDown += generateParagraph(answers.tests);
     markDown += getHeading2("Questions");
     markDown += generateParagraph(answers.questions);
-    markDown += generateListItem(answers.email)
-    
-    markDown += generateListItem(answers.github)
+    markDown += generateListItem(answers.email);
+    markDown += generateListItem(answers.github);
 
     return markDown;
 };
@@ -128,22 +128,19 @@ function generateListItem(item){
 }
 
 function getLicenseBadge(item){
-  return  "Badge" + item + newLine;
+  return "License: " + item + newLine;
 }
-function generateGitHubLink(text){
-  return [`\${answer.github}\`](https://github.com/${answer.github});
+//   [![License: ${ answer.license }](https://img.shields.io/badge/License-${ data.license }-blue.svg)](https://opensource.org/licenses/${ data.license })
+// } 
 
-  
-}
 
-Project Home Page: ${data.homePage}
-* Project Github: ${data.github}
-* Author: [\`${data.author}\`](https://github.com/${data.author})
 
 inquirer.prompt(questions).then((answers) => {
-    fs.writeFile("README.md", generateMD(answers), function(){
+  fs.writeFile("README.md", generateMD(answers), function(){
 
-    });
   });
-  
-// console.log("hello world")
+});
+
+
+
+
