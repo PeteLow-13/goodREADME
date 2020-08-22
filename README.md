@@ -1,7 +1,7 @@
-# Title
-Badgeone
+# Good README.md
+[![License: MPL](https://img.shields.io/badge/License-MPL-green.svg)](https://opensource.org/licenses/MPL)
 
-Description
+A tool to generate good README.md files easily
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
@@ -11,21 +11,23 @@ Description
 - [Questions](#questions)
 ## Installation
 
-Installation
+not just yet
 ## Usage
 
-Usage
+It can be used to make README mark down files
 ## License
 
-License
+Mozilla public license
 ## Contributing
 
-Contributing
+Don't mess stuff up
 ## Tests
 
-Tests
+there arent any yet
+## Repository
+- https://github.com/PeteLow-13/goodREADME
 ## Questions
 
 Contact me via email or github with questions
-- Email
-- github
+- pedritolow@gmail.com
+- [PeteLow-13](http://github.com/PeteLow-13)
