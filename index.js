@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require('fs');
 const inquirer = require('inquirer');
 const newLine = "\n";
 
@@ -73,41 +73,40 @@ var questions =  [{
   {
     type: 'input',
     name: 'github',
-    message: 'What is your github profile?',
+    message: 'What is your github user name?',
     default: 'github',
   },
   
 ];
 
 function generateMD(answers) {
-    var markDown = "";
+    var markDown = '';
     
     markDown += getHeading1(answers.title);
-    markDown += getLicenseBadge(answers.licenseBadge);
+    markDown += `[![License: ${ answers.licenseBadge }](https://img.shields.io/badge/License-${ answers.licenseBadge }-green.svg)](https://opensource.org/licenses/${ answers.licenseBadge })` + newLine;
     markDown += generateParagraph(answers.description);
 
-    markDown += getHeading2("Table of Contents");
+    markDown += getHeading2('Table of Contents');
+    markDown += generateListItem(generateLink('Installation', '#installation'));
+    markDown += generateListItem(generateLink('Usage', '#usage'));
+    markDown += generateListItem(generateLink('License', '#license'));
+    markDown += generateListItem(generateLink('Contributing', '#contributing'));
+    markDown += generateListItem(generateLink('Tests', '#tests'));
+    markDown += generateListItem(generateLink('Questions', '#questions'));
 
-    markDown += generateListItem(generateLink("Installation", "#installation"));
-    markDown += generateListItem(generateLink("Usage", "#usage"));
-    markDown += generateListItem(generateLink("License", "#license"));
-    markDown += generateListItem(generateLink("Contributing", "#contributing"));
-    markDown += generateListItem(generateLink("Tests", "#tests"));
-    markDown += generateListItem(generateLink("Questions", "#questions"));
-
-    markDown += getHeading2("Installation");
+    markDown += getHeading2('Installation');
     markDown += generateParagraph(answers.installation);
-    markDown += getHeading2("Usage");
+    markDown += getHeading2('Usage');
     markDown += generateParagraph(answers.usage);
-    markDown += getHeading2("License");
+    markDown += getHeading2('License');
     markDown += generateParagraph(answers.license);
-    markDown += getHeading2("Contributing");
+    markDown += getHeading2('Contributing');
     markDown += generateParagraph(answers.contributing);
-    markDown += getHeading2("Tests");
+    markDown += getHeading2('Tests');
     markDown += generateParagraph(answers.tests);
-    markDown += getHeading2("Repository");
+    markDown += getHeading2('Repository');
     markDown += generateListItem(answers.repositoryURL)
-    markDown += getHeading2("Questions");
+    markDown += getHeading2('Questions');
     markDown += generateParagraph(answers.questions);
     markDown += generateListItem(answers.email);
     markDown += generateListItem(generateGithublink(answers.github));
@@ -116,11 +115,11 @@ function generateMD(answers) {
 };
 
 function getHeading1(text) {
-    return "# " + text + newLine;
+    return '# ' + text + newLine;
 };
 
 function getHeading2(text) {
-  return "## " + text + newLine;
+  return '## ' + text + newLine;
 };
 
 function generateParagraph(text) {
@@ -128,28 +127,19 @@ function generateParagraph(text) {
 }
 
 function generateLink(text, url){
-  return "[" + text + "](" + url + ")";
+  return '[' + text + '](' + url + ')';
 }
 
 function generateListItem(item){
-  return "- " + item + newLine;
-}
-
-function getLicenseBadge(item){
-  return "License: " + item + newLine;
+  return '- ' + item + newLine;
 }
 
 function generateGithublink(text){
-  return "[" + text + "](http://github.com/" + text + ")";
+  return '[' + text + '](http://github.com/' + text + ')';
 }
 
-//   [![License: ${ answer.license }](https://img.shields.io/badge/License-${ data.license }-blue.svg)](https://opensource.org/licenses/${ data.license })
-// } 
-
-
-
 inquirer.prompt(questions).then((answers) => {
-  fs.writeFile("README.md", generateMD(answers), function(){
+  fs.writeFile('README.md', generateMD(answers), function(){
 
   });
 });
