@@ -31,7 +31,7 @@ var questions =  [{
     type: 'list',
     name: 'licenseBadge',
     message: 'Select a license your project is covered under',
-    choices:['MIT', 'BSD', 'Apache', 'LGPL', "MPL"],
+    choices:['MIT', 'BSD', 'Apache', 'LGPL', 'MPL', 'GPL'],
     default: 'No License',
   },
   {
@@ -54,6 +54,12 @@ var questions =  [{
   },
   {
     type: 'input',
+    name: 'repositoryURL',
+    message: 'What is the url for the project repository?',
+    default: 'repository',
+  },
+  {
+    type: 'input',
     name: 'questions',
     message: 'What would you like to say to direct people to contact you with questions?(you will be prompted for contact info next)',
     default: 'Contact me via email or github with questions',
@@ -63,12 +69,6 @@ var questions =  [{
     name: 'email',
     message: 'What is your email?',
     default: 'Email',
-  },
-  {
-    type: 'input',
-    name: 'repositoryURL',
-    message: 'What is the url for the project repository?',
-    default: 'repository',
   },
   {
     type: 'input',
