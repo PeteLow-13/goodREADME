@@ -1,7 +1,7 @@
-# Good README.md
-[![License: MPL](https://img.shields.io/badge/License-MPL-green.svg)](https://opensource.org/licenses/MPL)
+# GOODREADME.md
+[![License: GPL](https://img.shields.io/badge/License-GPL-green.svg)](https://opensource.org/licenses/GPL)
 
-A tool to generate good README.md files easily
+A tool to make mark down read me files
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
@@ -11,21 +11,22 @@ A tool to generate good README.md files easily
 - [Questions](#questions)
 ## Installation
 
-not just yet
+In progress
 ## Usage
 
-It can be used to make README mark down files
+to make read me files easier
 ## License
 
-Mozilla public license
+Covered under GPL
 ## Contributing
 
 Don't mess stuff up
 ## Tests
 
-there arent any yet
+In progress
 ## Repository
-- https://github.com/PeteLow-13/goodREADME
+- https://github.com/PeteLow-13/goodREADME#contributing
+
 ## Questions
 
 Contact me via email or github with questions
