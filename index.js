@@ -31,7 +31,7 @@ var questions =  [{
     type: 'list',
     name: 'licenseBadge',
     message: 'Select a license your project is covered under',
-    choices:['MIT', 'BSD', 'Apache', 'LGPL', 'MPL', 'GPL'],
+    choices:['ISC', 'MIT', 'BSD', 'Apache', 'LGPL', 'MPL', 'GPL'],
     default: 'No License',
   },
   {
