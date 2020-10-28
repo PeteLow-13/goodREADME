@@ -37,19 +37,19 @@ var questions =  [{
   {
     type: 'input',
     name: 'license',
-    message: 'Explain which license that your project is covered under',
+    message: 'Explain which license the project is covered under',
     default: 'License',
   }, 
   {
     type: 'input',
-    name: 'contributing',
-    message: 'What are the guidelines to contribute to your project?',
+    name: 'languages',
+    message: 'What languages are used in the project?',
     default: 'Contributing',
   },
   {
     type: 'input',
     name: 'tests',
-    message: 'What are the tests for your project?',
+    message: 'What are the tests for the project?',
     default: 'Tests',
   },
   {
@@ -84,24 +84,26 @@ function generateMD(answers) {
     
     markDown += getHeading1(answers.title);
     markDown += `[![License: ${ answers.licenseBadge }](https://img.shields.io/badge/License-${ answers.licenseBadge }-green.svg)](https://opensource.org/licenses/${ answers.licenseBadge })` + newLine;
+    markDown += getHeading2('Description');
     markDown += generateParagraph(answers.description);
 
     markDown += getHeading2('Table of Contents');
-    markDown += generateListItem(generateLink('Installation', '#installation'));
     markDown += generateListItem(generateLink('Usage', '#usage'));
+    markDown += generateListItem(generateLink('Installation', '#installation'));
     markDown += generateListItem(generateLink('License', '#license'));
-    markDown += generateListItem(generateLink('Contributing', '#contributing'));
+    markDown += generateListItem(generateLink('Languages', '#languages'));
     markDown += generateListItem(generateLink('Tests', '#tests'));
     markDown += generateListItem(generateLink('Questions', '#questions'));
 
-    markDown += getHeading2('Installation');
-    markDown += generateParagraph(answers.installation);
+    markDown += generateParagraph(answers.description);
     markDown += getHeading2('Usage');
     markDown += generateParagraph(answers.usage);
+    markDown += getHeading2('Installation');
+    markDown += generateParagraph(answers.installation);
     markDown += getHeading2('License');
     markDown += generateParagraph(answers.license);
-    markDown += getHeading2('Contributing');
-    markDown += generateParagraph(answers.contributing);
+    markDown += getHeading2('Languages');
+    markDown += generateParagraph(answers.languages);
     markDown += getHeading2('Tests');
     markDown += generateParagraph(answers.tests);
     markDown += getHeading2('Repository');
