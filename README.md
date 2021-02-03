@@ -1,35 +1,34 @@
-# GOODREADME.md
+# Good ReadMe.md
 [![License: GPL](https://img.shields.io/badge/License-GPL-green.svg)](https://opensource.org/licenses/GPL)
+## Description
 
-A tool to make mark down read me files
+Thsi is an excellent tool to make great ReadME files easily
 ## Table of Contents
-- [Installation](#installation)
 - [Usage](#usage)
+- [Installation](#installation)
 - [License](#license)
-- [Contributing](#contributing)
+- [Languages](#languages)
 - [Tests](#tests)
 - [Questions](#questions)
-## Installation
 
-In progress
+Thsi is an excellent tool to make great ReadME files easily
 ## Usage
 
-to make read me files easier
+Run command: node index.js and follow the prompts to make ReadMe's. Categories can be added, updated, or removed. 
+## Installation
+
+Installation
 ## License
 
-Covered under GPL
-## Contributing
+License
+## Languages
 
-Don't mess stuff up
+Put the languages and technologies used here.
 ## Tests
 
-In progress
+Put tests here
 ## Repository
-- https://github.com/PeteLow-13/goodREADME#contributing
-
-## Link to Video of project
-- https://drive.google.com/file/d/1zDXRsRlF3vud5XayqlyiZEU99AXjMRQ9/view
-
+- https://github.com/PeteLow-13/goodREADME
 ## Questions
 
 Contact me via email or github with questions

@@ -44,7 +44,7 @@ var questions =  [{
     type: 'input',
     name: 'languages',
     message: 'What languages are used in the project?',
-    default: 'Contributing',
+    default: 'Languages',
   },
   {
     type: 'input',
